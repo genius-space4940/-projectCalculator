@@ -16,9 +16,15 @@ body {
     background-color: rgb(25, 25, 26);
     padding: 10px;
     border-radius: 32px;
-    height: 96.825%;
+    height: 105%;
     width: 40%;
 }
+
+/* .input-field{
+    width: 90%;
+    height: 50px;
+    margin-top: 50px;
+} */
 
 .field{
     margin-top: 120px;
@@ -30,6 +36,7 @@ body {
 .buttons{
     display: flex;
     justify-content: center;
+    margin-top: 80px
 }
 
 button{
@@ -53,7 +60,7 @@ button{
     background-color: rgb(41, 41, 43);
 }
 
-.button-equal{
+.equal{
     display: flex;
     justify-content: center;
     align-items: center;
