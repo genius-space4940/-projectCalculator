@@ -18,11 +18,12 @@ document.querySelector('.clean-field').addEventListener('click', function(){
 })
 
 
-document.querySelector('.btn-equal').addEventListener('click', function(){
+document.querySelector('.equal').addEventListener('click', function(){
     let expression = expressionField.value;
     if (expression.includes('+')) {
         let numbers = expression.split('+');
         expressionField.value = +numbers[0] + +numbers[1];
+        console.log('+')
     } else if (expression.includes('-')) {
         let numbers = expression.split('-');
         expressionField.value = +numbers[0] - +numbers[1];
@@ -34,5 +35,3 @@ document.querySelector('.btn-equal').addEventListener('click', function(){
         expressionField.value = +numbers[0] / +numbers[1];
     }
 })
-
-// document.querySelector('.number7').addEventListener('click', function() {expressionField.value += '7'})
