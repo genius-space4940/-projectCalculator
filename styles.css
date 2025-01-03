@@ -65,7 +65,7 @@ button{
     background-color: rgb(51, 51, 53);
 }
 
-.clean-field, .operation, .brackets, .percent{
+.clean-field, .operation, .brackets, .exponent{
     background-color: rgb(41, 41, 43);
 }
 
