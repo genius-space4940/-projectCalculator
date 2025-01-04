@@ -67,7 +67,7 @@ document.querySelector('.clean-field').addEventListener('click', function(){
 document.querySelector('.equal').addEventListener('click', function(){
     try {
         let expression = inputField.value;
-        expression = expression.replace("×", "*").replace("÷", "/");
+        expression = expression.replace("×", "*").replace("÷", "/").replace("^", "**");
         inputField.value = eval(expression);
         expressionIsEvaluated = true;
     } catch (error) {
@@ -85,8 +85,8 @@ function addOperator(operator) {
     if (["+", "-", "×", "÷", "^"].includes(currentValue.slice(-1))) {
         inputField.value = currentValue.slice(0, -1) + operator;
     } else {
-        inputField.value += operator;
+        inputField.value += operator;   
     }
 
     expressionIsEvaluated = false;
-}
+}   
