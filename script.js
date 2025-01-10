@@ -1,12 +1,17 @@
 let inputField = document.querySelector('.input-field');
 let expressionIsEvaluated = false;
+let isDot = false;
+let isOperation = false;
 
 document.querySelector('.point').addEventListener("click", function() {
-    if (expressionIsEvaluated) {
+    if (!isOperation && isDot) {
         inputField.value = ".";
-        expressionIsEvaluated = false;
+        isDot = true;
+        isOperation = true;
     } else {
         inputField.value += ".";
+        isOperation = false;
+        isDot = true;
     }
 });
 
@@ -15,11 +20,11 @@ document.querySelector('.exponent').addEventListener("click", function() {
 });
 
 document.querySelector('.multiply-op').addEventListener("click", function() {
-    addOperator("×");
+    addOperator("*");
 });
 
 document.querySelector('.divide-op').addEventListener("click", function() {
-    addOperator("÷");
+    addOperator("/");
 });
 
 document.querySelector('.plus-op').addEventListener("click", function() {
@@ -66,8 +71,7 @@ document.querySelector('.clean-field').addEventListener('click', function(){
 
 document.querySelector('.equal').addEventListener('click', function(){
     try {
-        let expression = inputField.value;
-        expression = expression.replace("×", "*").replace("÷", "/").replace("^", "**");
+        let expression = inputField.value;  
         inputField.value = eval(expression);
         expressionIsEvaluated = true;
     } catch (error) {
@@ -82,7 +86,7 @@ document.querySelector('.equal').addEventListener('click', function(){
 function addOperator(operator) {
     let currentValue = inputField.value;
 
-    if (["+", "-", "×", "÷", "^"].includes(currentValue.slice(-1))) {
+    if (["+", "-", "*", "/", "**"].includes(currentValue.slice(-1))) {
         inputField.value = currentValue.slice(0, -1) + operator;
     } else {
         inputField.value += operator;   
@@ -90,3 +94,28 @@ function addOperator(operator) {
 
     expressionIsEvaluated = false;
 }   
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let currentValue = inputField.value;
+// // Перевіряємо останній символ у полі, щоб уникнути подвійних крапок
+// let lastNumber = currentValue.split(/[\+\-\*\/\^\(\)]/).pop();
+// if (!lastNumber.includes(".")) { // Якщо в поточному числі немає крапки
+//     if (expressionIsEvaluated) {
+//         inputField.value = "0.";
+//         expressionIsEvaluated = false;
+//     } else {
+//         inputField.value += ".";
+//     }
+// }
+// });
