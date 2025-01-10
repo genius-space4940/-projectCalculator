@@ -4,14 +4,12 @@ let isDot = false;
 let isOperation = false;
 
 document.querySelector('.point').addEventListener("click", function() {
-    if (!isOperation && isDot) {
-        inputField.value = ".";
-        isDot = true;
-        isOperation = true;
-    } else {
+    let currentValue = inputField.value;
+    
+    if (!isOperation && !currentValue.includes(".")) {
         inputField.value += ".";
-        isOperation = false;
         isDot = true;
+        isOperation = false;
     }
 });
 
@@ -67,6 +65,7 @@ for (let i = 0; i < 10; i += 1) {
 document.querySelector('.clean-field').addEventListener('click', function(){
     inputField.value = '';
     expressionIsEvaluated = false;
+    isDot = false;
 });
 
 document.querySelector('.equal').addEventListener('click', function(){
@@ -74,6 +73,7 @@ document.querySelector('.equal').addEventListener('click', function(){
         let expression = inputField.value;  
         inputField.value = eval(expression);
         expressionIsEvaluated = true;
+        isDot = false;
     } catch (error) {
         inputField.value = "Помилка";
 
@@ -94,28 +94,3 @@ function addOperator(operator) {
 
     expressionIsEvaluated = false;
 }   
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let currentValue = inputField.value;
-// // Перевіряємо останній символ у полі, щоб уникнути подвійних крапок
-// let lastNumber = currentValue.split(/[\+\-\*\/\^\(\)]/).pop();
-// if (!lastNumber.includes(".")) { // Якщо в поточному числі немає крапки
-//     if (expressionIsEvaluated) {
-//         inputField.value = "0.";
-//         expressionIsEvaluated = false;
-//     } else {
-//         inputField.value += ".";
-//     }
-// }
-// });
