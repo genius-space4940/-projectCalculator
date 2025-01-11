@@ -14,7 +14,7 @@ document.querySelector('.point').addEventListener("click", function() {
 });
 
 document.querySelector('.exponent').addEventListener("click", function() {
-    addOperator("^");
+    addOperator("**");
 });
 
 document.querySelector('.multiply-op').addEventListener("click", function() {
